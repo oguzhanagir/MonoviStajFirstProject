@@ -10,6 +10,7 @@
     <PackageReference Include="FluentValidation" Version="11.5.2" />
     <PackageReference Include="Metalama.Framework.Redist" Version="2023.1.9" />
     <PackageReference Include="PostSharp" Version="2023.0.6" />
+    <PackageReference Include="System.Runtime.Caching" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
