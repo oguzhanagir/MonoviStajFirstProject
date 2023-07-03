@@ -8,6 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.5.2" />
+    <PackageReference Include="Metalama.Framework.Redist" Version="2023.1.9" />
+    <PackageReference Include="PostSharp" Version="2023.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MonoviStajFirstProject.Entities\MonoviStajFirstProject.Entities.csproj" />
   </ItemGroup>
 
 </Project>

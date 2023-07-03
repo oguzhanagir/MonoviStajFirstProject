@@ -1,5 +1,6 @@
 ﻿using MonoviStajFirstProject.Business.Abstract;
 using MonoviStajFirstProject.Business.ValidationRules.FluentValidation;
+using MonoviStajFirstProject.Core.Aspects;
 using MonoviStajFirstProject.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using MonoviStajFirstProject.DataAccess.Abstract;
 using MonoviStajFirstProject.Entities.Concrete;
@@ -20,10 +21,11 @@ namespace MonoviStajFirstProject.Business.Concrete
             _unitOfWork = unitOfWork;
         }
 
-   
+
+        [FluentValidateAspect(typeof(UserValidatior))]
         public void Create(User entity)
         {
-            ValidatorTool.FluentValidate(new UserValidatior(),entity);
+          
             _unitOfWork.Users.Add(entity);
             _unitOfWork.Save();
         }
@@ -49,10 +51,10 @@ namespace MonoviStajFirstProject.Business.Concrete
         }
 
 
-      
+        [FluentValidateAspect(typeof(UserValidatior))]
         public void Update(User entity)
         {
-            ValidatorTool.FluentValidate(new UserValidatior(), entity);
+            
             _unitOfWork.Users.Update(entity);
             _unitOfWork.Save();
         }
