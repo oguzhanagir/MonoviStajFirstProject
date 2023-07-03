@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MonoviStajFirstProject.Core.Aspects
+namespace MonoviStajFirstProject.Core.Aspects.ValidationAspects
 {
+    [Serializable]
     public class FluentValidateAspect : OnMethodBoundaryAspect
     {
         Type _validatorType;
@@ -24,7 +25,7 @@ namespace MonoviStajFirstProject.Core.Aspects
 
             var entities = args.Arguments.Where(x => x.GetType() == entityType);
 
-            foreach ( var entity in entities) 
+            foreach (var entity in entities)
             {
                 ValidatorTool.FluentValidate(validator, entity);
             }

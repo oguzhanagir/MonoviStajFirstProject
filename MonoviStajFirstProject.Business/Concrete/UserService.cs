@@ -1,7 +1,7 @@
 ﻿using MonoviStajFirstProject.Business.Abstract;
 using MonoviStajFirstProject.Business.ValidationRules.FluentValidation;
-using MonoviStajFirstProject.Core.Aspects;
-using MonoviStajFirstProject.Core.CrossCuttingConcerns.Validation.FluentValidation;
+using MonoviStajFirstProject.Core.Aspects.TransactionAspects;
+using MonoviStajFirstProject.Core.Aspects.ValidationAspects;
 using MonoviStajFirstProject.DataAccess.Abstract;
 using MonoviStajFirstProject.Entities.Concrete;
 using System;
@@ -22,6 +22,7 @@ namespace MonoviStajFirstProject.Business.Concrete
         }
 
 
+        [TransactionScopeAspect]
         [FluentValidateAspect(typeof(UserValidatior))]
         public void Create(User entity)
         {
@@ -30,7 +31,7 @@ namespace MonoviStajFirstProject.Business.Concrete
             _unitOfWork.Save();
         }
 
-
+        [TransactionScopeAspect]
         public void Delete(int id)
         {
             var user = _unitOfWork.Users.GetById(id);
@@ -41,16 +42,19 @@ namespace MonoviStajFirstProject.Business.Concrete
             }
         }
 
+        [TransactionScopeAspect]
         public IEnumerable<User> GetAll()
         {
             return _unitOfWork.Users.GetAll();
         }
+
+        [TransactionScopeAspect]
         public User GetById(int id)
         {
             return _unitOfWork.Users.GetById(id);
         }
 
-
+        [TransactionScopeAspect]
         [FluentValidateAspect(typeof(UserValidatior))]
         public void Update(User entity)
         {
