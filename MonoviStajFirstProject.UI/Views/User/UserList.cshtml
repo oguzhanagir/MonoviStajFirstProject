@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MonoviStajFirstProject.Entities.Concrete.User>
+@{
+    ViewData["Title"] = "UserList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ad</th>
+            <th scope="col">Soyad</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Telefon Numarası</th>
+            <th scope="col">Kullanıcı Sil</th>
+            <th scope="col">Kullanıcı Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var user in Model)
+        {
+            <tr>
+                <th scope="row">@user.Id</th>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.Mail</td>
+                <td>@user.PhoneNumber</td>
+                <td><a href="/User/DeleteUser/@user.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/User/UpdateUser/@user.Id" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        }
+    
+    </tbody>
+</table>

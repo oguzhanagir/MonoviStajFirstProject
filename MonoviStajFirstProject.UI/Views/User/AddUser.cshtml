@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+          @using (Html.BeginForm("AddUser", "User", FormMethod.Post))
+                {
+            <div class="form-group mb-5">
+                <label>Ad</label>
+                <input type="text" name="FirstName" class="form-control" placeholder="Adınız">
+            </div>
+            <div class="form-group mb-5">
+                <label>Soyad</label>
+                <input type="text" name="LastName" class="form-control" placeholder="Soyadınız">
+            </div>
+
+            <div class="form-group mb-5">
+                <label>Mail</label>
+                <input type="email" name="Mail" class="form-control" placeholder="Mail Adresiniz">
+            </div>
+            <div class="form-group mb-5">
+                <label>Telefon Numarası</label>
+                <input type="text" name="PhoneNumber" class="form-control" placeholder="Telefon Numaranız">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Kullanıcı Ekle</button>
+    }
+
+    </div>
+</div>
+
