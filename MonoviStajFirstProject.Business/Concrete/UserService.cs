@@ -26,6 +26,7 @@ namespace MonoviStajFirstProject.Business.Concrete
 
         [TransactionScopeAspect]
         [FluentValidateAspect(typeof(UserValidatior))]
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Create(User entity)
         {
           
