@@ -1,7 +1,9 @@
 ﻿using MonoviStajFirstProject.Business.Abstract;
 using MonoviStajFirstProject.Business.ValidationRules.FluentValidation;
+using MonoviStajFirstProject.Core.Aspects.CacheAspects;
 using MonoviStajFirstProject.Core.Aspects.TransactionAspects;
 using MonoviStajFirstProject.Core.Aspects.ValidationAspects;
+using MonoviStajFirstProject.Core.CrossCuttingConcerns.Caching.MemoryCaches;
 using MonoviStajFirstProject.DataAccess.Abstract;
 using MonoviStajFirstProject.Entities.Concrete;
 using System;
@@ -49,6 +51,7 @@ namespace MonoviStajFirstProject.Business.Concrete
         }
 
         [TransactionScopeAspect]
+        [CacheAspect(typeof(MemoryCacheManager))]
         public User GetById(int id)
         {
             return _unitOfWork.Users.GetById(id);
