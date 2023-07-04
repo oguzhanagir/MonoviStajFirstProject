@@ -30,7 +30,7 @@ namespace MonoviStajFirstProject.Core.CrossCuttingConcerns.Caching.MemoryCaches
         {
             foreach (var item in Cache)
             {
-                Remove(item);
+                Remove(item.Key);
             }
         }
 
